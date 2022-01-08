@@ -3,6 +3,11 @@ async function loginFormHandler(event) {
     
     const email = document.getElementById("emailInput").value.trim();
     const password = document.getElementById("passwordInput").value.trim();
+
+    if (!validateEmail(email)) {
+        alert("Please enter a valid email address");
+        return;
+    }
     
     if (email && password) {
         const response = await fetch("/api/users/login", {
@@ -28,3 +33,9 @@ async function loginFormHandler(event) {
 document
     .getElementById("loginForm")
     .addEventListener("submit", loginFormHandler);
+
+    function validateEmail(email) {
+        const re =
+            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }

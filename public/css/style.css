@@ -45,7 +45,7 @@ main{
 
 footer{
     background-color: var(--light-gray);
-    height: 100px;
+    min-height: 100px;
     font-family: 'Bebas Neue',cursive;
     font-size: 1.2rem;
     color: var(--blue) !important;
