@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 
 //Login Route
 router.get("/login", (req, res) => {
-    res.render("login",{layout: "login-layout"});
+    res.render("login", { layout: "login-layout" });
 });
 
 //GET blog by id
