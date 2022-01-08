@@ -21,6 +21,10 @@ body{
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     background: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 
@@ -35,18 +39,27 @@ h1{
     padding-bottom: 40px;
 }
 
+main{
+    display: flex;
+}   
 
 footer{
     background-color: var(--light-gray);
-    min-height: 100px;
+    height: 100px;
     font-family: 'Bebas Neue',cursive;
     font-size: 1.2rem;
     color: var(--blue) !important;
-    padding:20px 0 10px 0;
+    padding:20px 10px;
 }
 
 footer ul{
     list-style-type: none;
+}
+
+footer .container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
 }
 
 a{
@@ -188,5 +201,9 @@ textarea {
     }
     .blog-body{
         padding: 0px 10px;
+    }
+    footer .container {
+        flex-flow: column wrap;
+        justify-content: space-between;
     }
 }
