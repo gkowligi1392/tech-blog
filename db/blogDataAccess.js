@@ -55,7 +55,36 @@ function getBlogById(id) {
     });
 }
 
+function getAllBlogsByUserId(userId) {
+    return new Promise((resolve, reject) => {
+        Blog.findAll({
+            where: {
+            UserId: userId,
+            },
+            include: [
+            {
+                model: Comment,
+                include: [
+                {
+                    model: User,
+                    attributes: ["email", "firstName", "lastName"],
+                },
+                ],
+            },
+            ],
+        })
+            .then((dbBlogData) => {
+            const blogData = dbBlogData.map((blog) => blog.get({ plain: true }));
+            resolve(blogData);
+            })
+            .catch((err) => {
+            reject(err);
+            });
+    });
+}
+
 module.exports = {
     getAllBlogs,
     getBlogById,
+    getAllBlogsByUserId,
 };

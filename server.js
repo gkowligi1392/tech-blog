@@ -7,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sequelize = require("./config/connection");
+const sequelizeStore = require("connect-session-sequelize")(session.Store);
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -14,12 +15,15 @@ app.set("view engine", "handlebars");
 //Define middleware for express session
 app.use(
     session({
-        secret: "keyboard cat",
+        secret: process.env.SESSION_SECRET,
         cookie: {
             maxAge: 60000,
         },
         resave: false,
         saveUninitialized: true,
+        store: new sequelizeStore({
+            db: sequelize,
+        }),
     })
 );
 
