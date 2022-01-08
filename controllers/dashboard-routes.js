@@ -1,9 +1,10 @@
 const router = require("express").Router();
-const { getAllBlogs, getBlogById } = require("../db/blogDataAccess");
+const { getBlogById, getAllBlogsByUserId } = require("../db/blogDataAccess");
+const withAuth = require("../utils/auth");
 
 //Main Dashboard route
-router.get("/", (req, res) => {
-    getAllBlogs()
+router.get("/", withAuth, (req, res) => {
+    getAllBlogsByUserId(req.session.userId)
         .then((blogs) => {
             res.render("dashboard", { blogs, loggedIn: req.session.loggedIn });
         })
@@ -12,7 +13,7 @@ router.get("/", (req, res) => {
         });
     });
     //Edit blog route
-    router.get("/edit/:id", (req, res) => {
+    router.get("/edit/:id", withAuth, (req, res) => {
         getBlogById(req.params.id)
             .then((blog) => {
             console.log(blog);
@@ -24,12 +25,12 @@ router.get("/", (req, res) => {
     });
     
     //New blog Route
-    router.get("/new", (req, res) => {
+    router.get("/new", withAuth, (req, res) => {
         res.render("new-blog", { loggedIn: req.session.loggedIn });
     });
     
     //Delete blog route
-    router.get("/delete/:id", (req, res) => {
+    router.get("/delete/:id", withAuth, (req, res) => {
         getBlogById(req.params.id)
             .then((blog) => {
             res.render("delete-blog", { blog, loggedIn: req.session.loggedIn });
