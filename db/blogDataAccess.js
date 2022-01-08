@@ -35,6 +35,10 @@ function getBlogById(id) {
         },
         include: [
             {
+                model: User,
+                attributes: ["email", "firstName", "lastName"],
+            },
+            {
             model: Comment,
             include: [
                 {

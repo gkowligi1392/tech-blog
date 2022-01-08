@@ -17,7 +17,7 @@ router.get("/", withAuth, (req, res) => {
         getBlogById(req.params.id)
             .then((blog) => {
             console.log(blog);
-            res.render("edit-blog", { blog, loggedIn: req.session.loggedIn });
+            res.render("blog/edit", { blog, loggedIn: req.session.loggedIn });
             })
             .catch((err) => {
             console.log(err);
@@ -38,6 +38,17 @@ router.get("/", withAuth, (req, res) => {
             .catch((err) => {
             console.log(err);
             });
+});
+
+//Edit blog comments route
+router.get("/edit-comments/:id", withAuth, (req, res) => {
+    getBlogById(req.params.id)
+        .then((blog) => {
+            res.render("comments/edit", { blog, loggedIn: req.session.loggedIn });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 });
 
 module.exports = router;

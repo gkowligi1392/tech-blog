@@ -9,9 +9,6 @@ const PORT = process.env.PORT || 3001;
 const sequelize = require("./config/connection");
 const sequelizeStore = require("connect-session-sequelize")(session.Store);
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
 //Define middleware for express session
 app.use(
     session({
@@ -26,6 +23,10 @@ app.use(
         }),
     })
 );
+
+// Define the view engine
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Define middleware
 app.use(express.json());

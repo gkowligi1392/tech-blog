@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
             attributes: ["email", "firstName", "lastName"],
         },
         {
-            model: Post,
+            model: Blog,
             attributes: ["title"],
         },
         ],
@@ -48,7 +48,7 @@ router.get("/:id", (req, res) => {
 });
 
 //POST route for creating a comment
-router.post("/", withAuth, (req, res) => {
+router.post("/", (req, res) => {
     Comment.create({
         comment: req.body.comment,
         UserId: req.session.userId,
