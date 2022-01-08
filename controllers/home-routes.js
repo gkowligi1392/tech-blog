@@ -5,11 +5,16 @@ const { getAllBlogs, getBlogById } = require("../db/blogDataAccess");
 router.get("/", (req, res) => {
     getAllBlogs()
         .then((blogs) => {
-        res.render("home", { blogs });
+        res.render("home", { blogs, loggedIn: req.session.loggedIn });
         })
         .catch((err) => {
         console.log(err);
         });
+});
+
+//Login Route
+router.get("/login", (req, res) => {
+    res.render("login",{layout: "login-layout"});
 });
 
 //GET blog by id
