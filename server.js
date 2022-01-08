@@ -24,8 +24,12 @@ app.use(
     })
 );
 
+//Define handlebars helpers
+const helpers = require("./utils/helpers");
+const hbs = exphbs.create({ helpers });
+
 // Define the view engine
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 // Define middleware

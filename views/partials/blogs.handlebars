@@ -32,7 +32,7 @@
                 </div>
             {{/if}}
             <div class="d-flex flex-row justify-content-end mt-2">
-                <small class="text-muted">{{createdAt}}</small>
+                <small class="text-muted">{{format_date createdAt}}</small>
             </div>
             {{#each this.Comments}}
                 <p>{{comment}}</p>

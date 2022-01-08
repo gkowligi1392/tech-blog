@@ -30,7 +30,11 @@ router.get("/sign-up", (req, res) => {
 router.get("/blog/:id", (req, res) => {
     getBlogById(req.params.id)
         .then((blog) => {
-            res.render("blog", { blog });
+            res.render("blog", {
+                blog,
+                loggedIn: req.session.loggedIn,
+                fullName: req.session.fullName,
+            });
         })
         .catch((err) => {
             console.log(err);
@@ -41,7 +45,11 @@ router.get("/blog/:id", (req, res) => {
 router.get("/view-blog/:id", (req, res) => {
         getBlogById(req.params.id)
         .then((blog) => {
-            res.render("blog/view", { blog });
+            res.render("blog/view", {
+                blog,
+                loggedIn: req.session.loggedIn,
+                fullName: req.session.fullName,
+            });
         })
         .catch((err) => {
             console.log(err);
