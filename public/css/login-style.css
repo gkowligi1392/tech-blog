@@ -1,0 +1,43 @@
+/* font-family: 'McLaren', cursive;
+font-family: 'Roboto', sans-serif; */
+
+.login-container{
+    display: flex;
+    min-height: 100vh;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content:flex-start;
+    align-items:center;
+    max-width:400px;
+    min-height: 500px;
+    background-color: var(--light-gray);
+    padding: 10px 20px;
+    border:1px solid var(--blue)
+
+}
+
+.div-input{
+    width: 100%;
+}
+
+.hero-login{
+    min-height: 200px;
+}
+
+.title-login{
+    color:var(--blue);
+    font-size: 2.5rem;
+    padding: 0;
+}
+
+@media screen and (max-width: 575px){
+    .login-form{
+        width: 90%;
+    }
+}

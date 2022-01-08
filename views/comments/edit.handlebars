@@ -1,0 +1,21 @@
+<h1>Comments {{blog.title}}</h1>
+
+<div class="list-group">
+    {{#each blog.Comments}}
+        <div class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{comment}}</h5>
+            <small>{{createdAt}}</small>
+        </div>
+        <div class="d-flex w-100 justify-content-end mt-2">
+            <button
+            type="button"
+            data-id={{id}}
+            class="btn btn-danger btn-sm delete-comment"
+            >Delete</button>
+        </div>
+        </div>
+    {{/each}}
+</div>
+
+<script src="/js/deleteComment.js"></script>

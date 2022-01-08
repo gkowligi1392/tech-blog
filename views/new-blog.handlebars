@@ -1,0 +1,29 @@
+<h4>New Blog</h4>
+<form id="addBlogForm">
+    <div class="form-floating mb-3">
+        <input
+        type="text"
+        class="form-control"
+        id="inputTitle"
+        name="title"
+        placeholder="blog title"
+        />
+        <label for="inputTitle">Title</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <textarea
+        class="form-control"
+        placeholder="Content"
+        id="textareaBody"
+        name="body"
+        >
+        </textarea>
+        <label for="textareaBody">Content</label>
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button type="submit" class="btn btn-blue btn-lg">Submit</button>
+    </div>
+</form>
+
+<script src="/js/addBlog.js"></script> 

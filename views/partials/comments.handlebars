@@ -1,0 +1,12 @@
+{{#each Comments}}
+    <div class="card shadow mb-3 bg-body rounded mt-1">
+        <div class="card-body">
+        {{comment}}
+        <div class="d-flex flex-row justify-content-end mt-2">
+            <small class="text-muted">
+            {{format_date createdAt}}
+            </small>
+        </div>
+        </div>
+    </div>
+{{/each}}
