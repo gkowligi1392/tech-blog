@@ -68,7 +68,18 @@ router.post("/", (req, res) => {
         email: req.body.email,
         password: req.body.password,
     })
-        .then((dbUserData) => res.json(dbUserData))
+        .then((dbUserData) => {
+            const fullName = `${dbUserData.dataValues.firstName} ${dbUserData.dataValues.lastName}`;
+    
+            req.session.save(() => {
+                req.session.userId = dbUserData.dataValues.id;
+                req.session.username = dbUserData.dataValues.email;
+                req.session.fullName = fullName;
+                req.session.loggedIn = true;
+        
+                res.json({ message: "You are now logged in!" });
+            });
+        })
         .catch((err) => {
         console.log(err);
         res.status(500).json(err);
@@ -119,12 +130,12 @@ router.post("/login", (req, res) => {
             res.status(401).json({ message: "Incorrect password" });
             return;
         }
-
-        console.log("User info:", dbUserData.dataValues);
+        const fullName = `${dbUserData.dataValues.firstName} ${dbUserData.dataValues.lastName}`;
 
         req.session.save(() => {
             req.session.userId = dbUserData.dataValues.id;
             req.session.username = dbUserData.dataValues.email;
+            req.session.fullName = fullName;
             req.session.loggedIn = true;
 
             res.json({ message: "You are now logged in!" });

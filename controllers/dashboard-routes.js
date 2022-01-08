@@ -6,7 +6,11 @@ const withAuth = require("../utils/auth");
 router.get("/", withAuth, (req, res) => {
     getAllBlogsByUserId(req.session.userId)
         .then((blogs) => {
-            res.render("dashboard", { blogs, loggedIn: req.session.loggedIn });
+            res.render("dashboard", {
+                blogs,
+                loggedIn: req.session.loggedIn,
+                fullName: req.session.fullName,
+            });
         })
         .catch((err) => {
             console.log(err);
@@ -17,7 +21,11 @@ router.get("/", withAuth, (req, res) => {
         getBlogById(req.params.id)
             .then((blog) => {
             console.log(blog);
-            res.render("blog/edit", { blog, loggedIn: req.session.loggedIn });
+            res.render("blog/edit", {
+                blog,
+                loggedIn: req.session.loggedIn,
+                fullName: req.session.fullName,
+            });
             })
             .catch((err) => {
             console.log(err);
@@ -26,14 +34,21 @@ router.get("/", withAuth, (req, res) => {
     
     //New blog Route
     router.get("/new", withAuth, (req, res) => {
-        res.render("new-blog", { loggedIn: req.session.loggedIn });
+        res.render("new-blog", {
+            loggedIn: req.session.loggedIn,
+            fullName: req.session.fullName,
+        });
     });
     
     //Delete blog route
     router.get("/delete/:id", withAuth, (req, res) => {
         getBlogById(req.params.id)
             .then((blog) => {
-            res.render("delete-blog", { blog, loggedIn: req.session.loggedIn });
+                res.render("blog/delete", {
+                    blog,
+                    loggedIn: req.session.loggedIn,
+                    fullName: req.session.fullName,
+                });
             })
             .catch((err) => {
             console.log(err);
@@ -44,7 +59,12 @@ router.get("/", withAuth, (req, res) => {
 router.get("/edit-comments/:id", withAuth, (req, res) => {
     getBlogById(req.params.id)
         .then((blog) => {
-            res.render("comments/edit", { blog, loggedIn: req.session.loggedIn });
+            console.log(blog);
+            res.render("comments/edit", {
+                blog,
+                loggedIn: req.session.loggedIn,
+                fullName: req.session.fullName,
+            });
         })
         .catch((err) => {
             console.log(err);
