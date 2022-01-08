@@ -1,11 +1,15 @@
 const path = require("path");
 const express = require("express");
+const exphbs = require("express-handlebars");
 const session = require("express-session");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sequelize = require("./config/connection");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 //Define middleware for express session
 app.use(
