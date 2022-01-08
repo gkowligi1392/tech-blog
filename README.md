@@ -6,7 +6,7 @@
 
 Tech Blog that allows users to create and account, login, and add, edit, or delete posts.
 
-<p align="center"><img src="./public/images/ScreenShot.png" width="70%"></p>
+<p align="center"><img src="./public/images/Screenshot.png" width="70%"></p>
 
 ## Table of Contents
 
