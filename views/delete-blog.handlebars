@@ -1,0 +1,33 @@
+<h4>Delete Blog {{blog.title}}</h4>
+<form id="blogForm">
+    <div class="form-floating mb-3">
+        <input
+        type="text"
+        class="form-control"
+        id="inputTitle"
+        name="title"
+        placeholder="blog title"
+        value="{{blog.title}}"
+        disabled
+        />
+        <label for="inputTitle">Title</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <textarea
+        class="form-control"
+        placeholder="edit the body of your blog"
+        id="textareaBody"
+        name="body"
+        disabled
+        >
+        {{blog.body}}
+        </textarea>
+        <label for="textareaBody">Content</label>
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button type="submit" class="btn btn-danger btn-lg">Delete</button>
+    </div>
+</form>
+
+<script src="/js/deleteBlog.js"></script>
