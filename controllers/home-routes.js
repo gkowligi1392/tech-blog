@@ -5,6 +5,7 @@ const { getAllBlogs, getBlogById } = require("../db/blogDataAccess");
 router.get("/", (req, res) => {
     getAllBlogs()
         .then((blogs) => {
+            console.log(blogs);
         res.render("home", { blogs, loggedIn: req.session.loggedIn });
         })
         .catch((err) => {
@@ -21,11 +22,21 @@ router.get("/login", (req, res) => {
 router.get("/blog/:id", (req, res) => {
     getBlogById(req.params.id)
         .then((blog) => {
-        console.log(blog);
         res.render("blog", { blog });
         })
         .catch((err) => {
         console.log(err);
+        });
+});
+
+//View blog route
+router.get("/view-blog/:id", (req, res) => {
+        getBlogById(req.params.id)
+        .then((blog) => {
+            res.render("blog/view", { blog });
+        })
+        .catch((err) => {
+            console.log(err);
         });
 });
 

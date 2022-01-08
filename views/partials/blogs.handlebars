@@ -1,42 +1,50 @@
-{{#each blogs}}
-    <div class="col">
+<div class="blogs-list">
+    {{#each blogs}}
+        <div class="col">
         <div class="card shadow mb-3 bg-body rounded">
-        {{!-- <img class="card-img-top" src="{{image}}" alt="Card image cap" /> --}}
-        <div class="card-body">
-            <h5 class="card-title">{{title}}</h5>
-            <p class="card-text">{{body}}</p>
-            <div class="d-flex flex-row justify-content-end">
-            <div class="btn-group">
-                <a
-                href="/dashboard/edit/{{id}}"
-                class="btn btn-sm btn-outline-warning"
-                >
-                Edit
-                </a>
-                <a
-                href="/dashboard/edit-comments/{{id}}"
-                class="btn btn-sm btn-outline-primary"
-                >
-                Comments
-                </a>
-                <a
-                href="/dashboard/delete/{{id}}"
-                class="btn btn-sm btn-outline-danger"
-                >
-                Delete
-                </a>
-            </div>
-            </div>
-            <div class="d-flex flex-row justify-content-end mt-2">
-            <small class="text-muted">{{createdAt}}</small>
-            </div>
-        </div>
-        </div>
-    </div>
-{{/each}}
+            {{!-- <img class="card-img-top" src="{{image}}" alt="Card image cap" /> --}}
+            <div class="card-body">
+            <h5 class="card-title blog-title"><a href="/view-blog/{{id}}">{{title}}</a></h5>
+            <p class="card-text blog-body">{{body}}</p>
+            {{#if ../loggedIn}}
+                <div class="d-flex flex-row justify-content-end">
+                <div class="btn-group">
+                    <a
+                    href="/dashboard/edit/{{id}}"
+                    class="btn btn-sm btn-outline-warning"
+                    >
+                    Edit
+                    </a>
+                    <a
+                    href="/dashboard/edit-comments/{{id}}"
+                    class="btn btn-sm btn-outline-primary"
+                    >
+                    Comments
+                    </a>
+                    <a
+                    href="/dashboard/delete/{{id}}"
+                    class="btn btn-sm btn-outline-danger"
+                    >
+                    Delete
+                    </a>
+                </div>
 
-{{#if loggedIn}}
-    <div class="d-grid gap-2 col-2 mx-auto">
+                </div>
+            {{/if}}
+            <div class="d-flex flex-row justify-content-end mt-2">
+                <small class="text-muted">{{createdAt}}</small>
+            </div>
+            {{#each this.Comments}}
+                <p>{{comment}}</p>
+            {{/each}}
+            </div>
+        </div>
+        </div>
+    {{/each}}
+
+    {{#if loggedIn}}
+        <div class="d-grid gap-2 col-2 mx-auto">
         <a href="/dashboard/new" class="btn btn-blue btn-lg">New</a>
-    </div>
-{{/if}} 
+        </div>
+    {{/if}}
+</div>
