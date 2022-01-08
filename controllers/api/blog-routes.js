@@ -12,6 +12,10 @@ router.get("/", (req, res) => {
         {
             model: Comment,
             attributes: ["comment"],
+            include: {
+                model: User,
+                attributes: ["email", "firstName", "lastName"],
+            },
         },
         ],
     })
@@ -36,6 +40,10 @@ router.get("/:id", (req, res) => {
         {
             model: Comment,
             attributes: ["comment"],
+            include: {
+                model: User,
+                attributes: ["email", "firstName", "lastName"],
+            },
         },
         ],
     })
