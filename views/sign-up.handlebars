@@ -1,5 +1,5 @@
 <div class="login-container">
-    <form class="login-form" id="loginForm">
+    <form class="login-form" id="signupForm">
         <div class="title-hero title-login">
             {TECH BLOG}
         </div>
@@ -12,13 +12,34 @@
                 loop
                 autoplay
             ></lottie-player>
-            
+
+        </div>
+        <div class="d-flex justify-content-center">
+            <h1 class="pb-0">Sign up</h1>
+        </div>
+        <div class="form-floating div-input mb-3">
+            <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                placeholder="First Name"
+            />
+            <label for="floatingInput">First Name</label>
+        </div>
+        <div class="form-floating div-input mb-3">
+            <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                placeholder="Last Name"
+            />
+            <label for="floatingInput">Last Name</label>
         </div>
         <div class="form-floating div-input mb-3">
             <input
                 type="email"
                 class="form-control"
-                id="emailInput"
+                id="email"
                 placeholder="name@example.com"
             />
             <label for="floatingInput">Email address</label>
@@ -27,14 +48,14 @@
             <input
                 type="password"
                 class="form-control"
-                id="passwordInput"
+                id="password"
                 placeholder="Password"
             />
             <label for="floatingPassword">Password</label>
         </div>
         <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="submit" class="btn btn-blue btn-lg">Log in</button>
+            <button type="submit" class="btn btn-blue btn-lg">Sign up</button>
         </div>
     </form>
 </div>
-<script src="./js/login.js"></script>
+<script src="/js/signup.js"></script>
