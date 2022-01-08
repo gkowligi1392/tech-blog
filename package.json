@@ -10,13 +10,13 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/joseduardo15062005/my-blog.git"
+        "url": "git+https://github.com/gkowligi1392/tech-blog.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {},
-    "homepage": "https://github.com/joseduardo15062005/my-blog#readme",
+    "homepage": "https://github.com/gkowligi1392/tech-blog#readme",
     "dependencies": {
         "bcrypt": "^5.0.1",
         "connect-session-sequelize": "^7.1.2",
