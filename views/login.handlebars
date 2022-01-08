@@ -1,6 +1,28 @@
 <div class="login-container">
-    <div class="login-box">
-        username 
-        password:
-    </div>
+    <form class="login-form" id="loginForm">
+        <div class="title mb-5">
+        My Blog
+        </div>
+        <div class="form-floating div-input mb-3">
+        <input
+            type="email"
+            class="form-control"
+            id="emailInput"
+            placeholder="name@example.com"
+        />
+        <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating div-input mb-4">
+        <input
+            type="password"
+            class="form-control"
+            id="passwordInput"
+            placeholder="Password"
+        />
+        <label for="floatingPassword">Password</label>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+        <button type="submit" class="btn btn-blue btn-lg">Log in</button>
+        </div>
+    </form>
 </div>
